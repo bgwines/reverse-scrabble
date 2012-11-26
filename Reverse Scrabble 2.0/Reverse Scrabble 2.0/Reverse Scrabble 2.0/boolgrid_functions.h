@@ -25,7 +25,6 @@ void initialize_bool_grid(bool** &grid,
             grid[i][j] = init_value;
 }
 
-//TODO: should be able to make old_grid const
 bool** copy_bool_grid(bool** old_grid,
                       int DIM)
 {

@@ -549,8 +549,6 @@ int main(int argc,
     initialize_board(board);
     fill_tile_score_map();
     
-    //TODO: verify board is valid, contains correct number of tiles
-    
     vector<int> player_scores;
     initialize_players(player_final_scores, player_scores);
     

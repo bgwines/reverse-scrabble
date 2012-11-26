@@ -41,7 +41,6 @@ bool Board::in_bounds(size_t x, size_t y)
         && (int)y < this->DIM;
 }
 
-//TODO: set DIM according to this
 void Board::file_read(string filename,
                       vector<string> &lines)
 {
@@ -72,7 +71,6 @@ void Board::file_read(string filename,
         cout << "Unable to open file";
 }
 
-//TODO: check sizes fit / force it from board
 void Board::fill_board(const string &filename)
 {
     vector<string> lines;
