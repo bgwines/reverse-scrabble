@@ -1,5 +1,4 @@
-scrabble-history
-================
+#scrabble-history
 
 In order to run this, go to the following files and make the following changes:
 
@@ -8,6 +7,8 @@ In order to run this, go to the following files and make the following changes:
 * constants.h:line 21 -- change the variable dictionary_file_name to the location of the dictionary file
 * constants.h:line 23 -- change the variable disregard_final_scores if you want to see all histories that lead to the final state, irrespective of the final scores of the players (this is useful if you're running it on a board that doesn't come from an actual game, in which case you wouldn't know the final scores).
 
+
+##Assumptions
 No error checking is currently performed on the input board. Specifically, the following assumptions are made:
 
 * the board is a square (i.e. m x n for m == n)
@@ -15,9 +16,7 @@ No error checking is currently performed on the input board. Specifically, the f
 * for all letters X, the number of times letter X is played on the board is
   less than or equal to the number of letter X tiles in a Scrabble game.
 
-==================
-   board format
-==================
+##board format
 Example:
 
     ...cite
