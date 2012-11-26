@@ -78,6 +78,11 @@ void initialize_players(vector<int> &player_final_scores,
 		}
 		myfile.close();
     }
+    else
+    {
+        cout << "Unable to open file";
+        assert(false);
+    }
     
     for (int i=0; i<*get_n_players(); i++)
     {

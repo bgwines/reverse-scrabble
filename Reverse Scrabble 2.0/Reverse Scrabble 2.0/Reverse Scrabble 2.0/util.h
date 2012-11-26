@@ -15,6 +15,11 @@
 void PopulateDictionary(set<string> &dictionary) {
 	std::ifstream myfile;
     myfile.open ("/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/dictionary.txt");
+    if (!myfile.is_open())
+    {
+        cout << "Unable to open file";
+        assert(false);
+    }
     
 	insert_iterator<set<string> > itr(dictionary, dictionary.begin());
 	copy(istream_iterator<string>(myfile), istream_iterator<string>(), itr);
