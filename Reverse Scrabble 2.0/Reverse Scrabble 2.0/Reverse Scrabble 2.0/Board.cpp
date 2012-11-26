@@ -68,7 +68,10 @@ void Board::file_read(string filename,
 		myfile.close();
     }
     else
+    {
         cout << "Unable to open file";
+        assert(false);
+    }
 }
 
 void Board::fill_board(const string &filename)
