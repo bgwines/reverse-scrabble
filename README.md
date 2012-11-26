@@ -1,7 +1,11 @@
 scrabble-history
 ================
 
+DFS to computer all possible histories of a Scrabble board.
 
+Note: to run it, you'll have to put the dictionary file 
+and the board file in specific places. Next update should 
+fix that.
 
 
 ==================
