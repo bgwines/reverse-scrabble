@@ -7,7 +7,8 @@ scrabble-history
 ==================
    board format
 ==================
-Example (actual board would not be indented):
+Example:
+
     ...cite
     .tilt..
     ...e...
@@ -20,4 +21,8 @@ Example (actual board would not be indented):
     %19
     %4
     #comment
+
 Any lines starting with # will be ignored, so feel free to use them for comments.
+
+The first of the lines starting with a '%' character is the number of players. Each 
+subsequent i^th line is the score of the i^th player.
