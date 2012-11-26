@@ -1,18 +1,24 @@
 scrabble-history
 ================
 
-DFS to computer all possible histories of a Scrabble board.
+In order to run this, go to the following files and make the following changes:
 
-Note: to run it, you'll have to put the dictionary file 
-and the board file in specific places. Next update should 
-fix that.
+* util.h     :line 17 -- change the string to the location of the dictionary file
+* constants.h:line 19 -- change the variable board_file_name to the location of the board file
+* constants.h:line 21 -- change the variable dictionary_file_name to the location of the dictionary file
+* constants.h:line 23 -- change the variable disregard_final_scores if you want to see all histories that lead to the final state, irrespective of the final scores of the players (this is useful if you're running it on a board that doesn't come from an actual game, in which case you wouldn't know the final scores).
 
+No error checking is currently performed on the input board. Specifically, the following assumptions are made:
+
+* the board is a square (i.e. m x n for m == n)
+* the board format is adhered to 
+* for all letters X, the number of times letter X is played on the board is
+  less than or equal to the number of letter X tiles in a Scrabble game.
 
 ==================
    board format
 ==================
-Example:
-
+Example (actual board would not be indented):
     ...cite
     .tilt..
     ...e...
@@ -25,8 +31,4 @@ Example:
     %19
     %4
     #comment
-
 Any lines starting with # will be ignored, so feel free to use them for comments.
-
-The first of the lines starting with a '%' character is the number of players. Each 
-subsequent i^th line is the score of the i^th player.
