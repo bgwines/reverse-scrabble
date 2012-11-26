@@ -14,7 +14,7 @@
 
 void PopulateDictionary(set<string> &dictionary) {
 	std::ifstream myfile;
-    myfile.open ("/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/dictionary.txt");
+    myfile.open (dictionary_file_name);
     if (!myfile.is_open())
     {
         cout << "Unable to open file";

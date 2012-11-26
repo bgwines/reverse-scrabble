@@ -21,15 +21,7 @@ static string GetLine()
 /* Fills board with file contents */
 void initialize_board(Board &board)
 {
-    string filename;
-    cout << "Enter the path to directory containing the \nboard file (or just hit enter to use \"sample_board.txt\":";
-    filename = GetLine();
-    if (filename == "")
-    {
-        filename = "/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/sample_board.txt";
-    }
-    
-    board.fill_board(filename);
+    board.fill_board(board_file_name);
     board.set_up();
     board.print_board();
 }
@@ -51,12 +43,11 @@ void initialize_uncovered_tiles(list<point> &all_uncovered_tiles,
 
 /* Initializes players' scores */
 void initialize_players(vector<int> &player_final_scores,
-                        vector<int> &player_ongoing_scores,
-                        string filename = "/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/sample_board.txt")
+                        vector<int> &player_ongoing_scores)
 {
     bool initialized_N_PLAYERS = false;
     string line;
-    ifstream myfile (filename);
+    ifstream myfile (board_file_name);
     if (myfile.is_open())
     {
         while (myfile.good())

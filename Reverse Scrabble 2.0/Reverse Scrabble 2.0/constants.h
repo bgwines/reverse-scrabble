@@ -16,4 +16,9 @@ const char MYSTERY_CHAR = '?';
 
 const char EMPTY_BLOCK = '.';
 
+const string board_file_name = "/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/sample_board.txt";
+
+const string dictionary_file_name = "/Users/brettwines/Library/Developer/Xcode/DerivedData/Reverse_Scrabble_2.0-heihxcyeadornsbxaxwmfxmmvdqj/Build/Products/Debug/dictionary.txt";
+
+const bool disregard_final_scores = false;
 #endif
