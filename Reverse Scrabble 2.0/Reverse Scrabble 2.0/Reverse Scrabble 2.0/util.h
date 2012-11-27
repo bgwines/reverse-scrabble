@@ -29,11 +29,6 @@ void PopulateDictionary(set<string> &dictionary) {
 	return;
 }
 
-static void verify_input_file_exists()
-{
-    
-}
-
 template<typename T>
 bool contains(const vector<T> &v, const T &elem)
 {
