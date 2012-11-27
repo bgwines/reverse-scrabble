@@ -37427,7 +37427,7 @@ erythromycin
 erythromycins
 erythron
 erythrons
-es
+//es
 escadrille
 escadrilles
 escalade
@@ -40671,7 +40671,7 @@ feoffing
 feoffor
 feoffors
 feoffs
-fer
+//fer
 feracities
 feracity
 feral
@@ -72633,7 +72633,7 @@ nazifies
 nazify
 nazifying
 nazis
-ne
+//ne
 neap
 neaps
 near
@@ -75131,7 +75131,7 @@ oenomels
 oerloaded
 oersted
 oersteds
-oes
+//oes
 oestrin
 oestrins
 oestriol
@@ -76218,7 +76218,7 @@ orrices
 orris
 orrises
 ors
-ort
+//ort
 orthicon
 orthicons
 ortho
