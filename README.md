@@ -12,8 +12,6 @@ No error checking is currently performed on the input board. Specifically, the f
 
 * the board is a square (i.e. m x n for m == n)
 * the board format is adhered to 
-* for all letters X, the number of times letter X is played on the board is
-  less than or equal to the number of letter X tiles in a Scrabble game.
 
 ##board format
 Example:
