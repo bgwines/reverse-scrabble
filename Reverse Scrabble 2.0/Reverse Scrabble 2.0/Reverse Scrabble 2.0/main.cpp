@@ -425,12 +425,11 @@ bool reconstruct_turns(vector<turn_t> history,
                        bool**         state, //explicitly copied, so "by value"
                        vector<int>    player_scores,
                        PLAYER         player,
-                       list<point>    tiles_to_be_covered,
-                       map<char, int> letter_tile_counts)
+                       list<point>    tiles_to_be_covered)
 {
     //base case: board has been completed
     if (tiles_to_be_covered.size() == 0 &&
-        player_scores == player_final_scores)
+        (disregard_final_scores || player_scores == player_final_scores))
     {
         successful_histories.push_back(history);
         return true;
@@ -444,15 +443,10 @@ bool reconstruct_turns(vector<turn_t> history,
         word_t current_play = turns[t].word_played;
         
         int score = determine_turn_score(turns[t]);
-        if (player_scores[player]+score > player_final_scores[player])
+        if (player_scores[player]+score > player_final_scores[player] && !disregard_final_scores)
             continue;
         vector<int> updated_player_scores(player_scores);
         updated_player_scores[player] += score;
-        
-        map<char, int> updated_letter_tile_counts(letter_tile_counts);
-        bool enough_letters_to_play = update_letter_counts_from_turn(updated_letter_tile_counts, turns[t]);
-        if (!enough_letters_to_play)
-            continue;
         
         turns[t].score = score;
         turns[t].player = player;
@@ -470,8 +464,7 @@ bool reconstruct_turns(vector<turn_t> history,
                                          updated_state,
                                          updated_player_scores,
                                          next_player(player),
-                                         updated_tiles_to_be_covered,
-                                         updated_letter_tile_counts);
+                                         updated_tiles_to_be_covered);
         
         free_bool_grid(updated_state, board.DIM);
         
@@ -488,9 +481,6 @@ void reconstruct_turns_wrapper(vector<int> zeroed_out_player_scores)
     list<point> all_uncovered_tiles;
     initialize_uncovered_tiles(all_uncovered_tiles, board.DIM);
     
-    map<char, int> initial_letter_tile_counts;
-    initialize_letter_counts(initial_letter_tile_counts);
-    
     vector<word_t> words;
     get_all_words_from_location(board.DIM/2, board.DIM/2, words, blank_state);
     vector<turn_t> turns;
@@ -506,15 +496,10 @@ void reconstruct_turns_wrapper(vector<int> zeroed_out_player_scores)
     for (size_t t=0; t<turns.size(); t++)
     {
         int score = determine_turn_score(turns[t]);
-        if (score > player_final_scores[ONE])
+        if (score > player_final_scores[ONE] && !disregard_final_scores)
             continue;
         turns[t].score = score;
         player_scores[ONE] = score; //don't need to make copy each time because only one index is modified
-        
-        map<char, int> letter_tile_counts(initial_letter_tile_counts);
-        bool enough_letters_to_play = update_letter_counts_from_turn(letter_tile_counts, turns[t]);
-        if (!enough_letters_to_play)
-            continue;
         
         vector<turn_t> history;
         history.push_back(turns[t]);
@@ -531,8 +516,7 @@ void reconstruct_turns_wrapper(vector<int> zeroed_out_player_scores)
                                          state,
                                          player_scores,
                                          next_player(ONE),
-                                         tiles_to_be_covered,
-                                         letter_tile_counts);
+                                         tiles_to_be_covered);
         
         free_bool_grid(state, board.DIM);
         

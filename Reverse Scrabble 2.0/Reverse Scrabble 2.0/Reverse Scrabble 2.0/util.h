@@ -17,8 +17,9 @@ void PopulateDictionary(set<string> &dictionary) {
     myfile.open (dictionary_file_name);
     if (!myfile.is_open())
     {
-        cout << "Unable to open file";
-        assert(false);
+        cout << "Unable to open dictionary file: " << dictionary_file_name << endl;
+        cout.flush();
+        exit(0);
     }
     
 	insert_iterator<set<string> > itr(dictionary, dictionary.begin());
@@ -26,11 +27,6 @@ void PopulateDictionary(set<string> &dictionary) {
 	
 	myfile.close();
 	return;
-}
-
-static void verify_input_file_exists()
-{
-    
 }
 
 template<typename T>

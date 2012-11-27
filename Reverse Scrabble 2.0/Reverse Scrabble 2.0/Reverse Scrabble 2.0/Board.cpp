@@ -69,8 +69,9 @@ void Board::file_read(string filename,
     }
     else
     {
-        cout << "Unable to open file";
-        assert(false);
+        cout << "Unable to open file board file: " << board_file_name << endl;
+        cout.flush();
+        exit(0);
     }
 }
 
