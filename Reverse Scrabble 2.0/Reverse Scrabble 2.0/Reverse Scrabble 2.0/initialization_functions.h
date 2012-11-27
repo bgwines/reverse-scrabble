@@ -71,8 +71,9 @@ void initialize_players(vector<int> &player_final_scores,
     }
     else
     {
-        cout << "Unable to open file";
-        assert(false);
+        cout << "Unable to open board file: " << board_file_name << endl;
+        cout.flush();
+        exit(0);
     }
     
     for (int i=0; i<*get_n_players(); i++)
